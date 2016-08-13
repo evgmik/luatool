@@ -1,5 +1,5 @@
-sec, usec = rtctime.get();
-print("Time stamp: "..sec);
+sec, usec = rtctime.get()
+t_str = "Time stamp: "..sec..", "
 
 pin=3
 status, temp, humi, temp_dec, humi_dec = dht.read(pin)
@@ -15,7 +15,8 @@ if status == dht.OK then
     --]]
 
     -- Float firmware using this example
-    print("DHT Temperature:"..temp..";".."Humidity:"..humi)
+    dht_str = "DHT Temp: "..temp..",  ".."DHT Humidity: "..humi
+    print(t_str.." "..dht_str)
 
 elseif status == dht.ERROR_CHECKSUM then
     print( "DHT Checksum error." )
