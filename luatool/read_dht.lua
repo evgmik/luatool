@@ -1,3 +1,6 @@
+sec, usec = rtctime.get();
+print("Time stamp: "..sec);
+
 pin=3
 status, temp, humi, temp_dec, humi_dec = dht.read(pin)
 if status == dht.OK then
