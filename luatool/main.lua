@@ -18,5 +18,8 @@ sntp.sync('192.168.2.17',
   end
 )
 
--- now we print DHT sensor data every 10 seconds
-tmr.alarm(0, 10000, tmr.ALARM_AUTO, function() dofile("read_dht.lua") end )
+-- read and report sensonr once, since alarm will wait before executing
+dofile("read_dht.lua")
+
+-- now we print DHT sensor data every 60 seconds
+tmr.alarm(0, 60000, tmr.ALARM_AUTO, function() dofile("read_dht.lua") end )
